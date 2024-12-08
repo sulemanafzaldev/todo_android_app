@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.btnX.setOnClickListener {
-
             DataObject.deleteAllData()
 
         }

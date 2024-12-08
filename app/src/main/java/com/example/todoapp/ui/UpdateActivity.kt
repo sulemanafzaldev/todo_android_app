@@ -1,5 +1,6 @@
 package com.example.todoapp.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -32,11 +33,22 @@ class UpdateActivity : AppCompatActivity() {
 
             binding.btnDelete.setOnClickListener {
                 DataObject.deleteItem(pos)
+                myIntent()
             }
             binding.btnUpdate.setOnClickListener {
-                DataObject.updateItem(pos, title, priority)
+                DataObject.updateItem(
+                    pos,
+                    binding.tvUpdateTitle.text.toString(),
+                    binding.tvUpdatePeriorty.text.toString()
+                )
+                myIntent()
             }
         }
 
+    }
+
+    private fun myIntent() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }
